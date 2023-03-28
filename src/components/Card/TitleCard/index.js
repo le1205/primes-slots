@@ -6,7 +6,6 @@ import Typography from '@mui/material/Typography'
 
 // assets
 import CatPinkIcon from 'src/assets/icons/cat-pink.svg'
-import SOLIcon from 'src/assets/icons/sol.svg'
 
 const TitleCard = props => {
   const { title, description } = props

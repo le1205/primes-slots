@@ -6,6 +6,9 @@ import { useLocation, useNavigate } from 'react-router-dom'
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
 
+// custom components
+import AccountButton from 'src/components/Button/AccountButton'
+
 // assets
 import Logo from 'src/assets/icons/logo.svg'
 import Frame01Pink from 'src/assets/icons/frame-01-pink.svg'
@@ -77,6 +80,9 @@ const Navigation = props => {
         <Button onClick={() => navigate('/')}>
           <img src={Logo} alt="" />
         </Button>
+        <Box sx={{ paddingTop: '40px' }}>
+          <AccountButton />
+        </Box>
         <Box sx={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '20px' }}>
           <Button
             sx={location.pathname === '/01' ? activeNavContainer : navContainer}
