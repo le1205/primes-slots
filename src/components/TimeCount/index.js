@@ -1,14 +1,40 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 // mui components
 import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
+
+// custom functions
+import { calculateTimeLeft } from 'src/utils'
 
 // assets
 import SOLIcon from 'src/assets/icons/sol.svg'
 
 const TimeCount = props => {
   const { funds } = props
+
+  const [timeLeft, setTimeLeft] = useState(calculateTimeLeft(1683676800000)) // 1683676800000: 2023/05/10 00:00:00
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setTimeLeft(calculateTimeLeft(1683676800000))
+    }, 1000)
+
+    return () => clearTimeout(timer)
+  })
+
+  const titleStyle = {
+    textAlign: 'left',
+    width: '31px',
+    fontSize: '24px',
+    fontWeight: '700',
+    color: '#EF127C',
+    lineHeight: '1',
+  }
+
+  const colonStyle = { fontSize: '24px', fontWeight: '700', color: '#EF127C', lineHeight: '1' }
+  const subTitleStyle = { fontSize: '12px', fontWeight: '700' }
+
   return (
     <Box
       sx={{
@@ -56,29 +82,29 @@ const TimeCount = props => {
       </Box>
       <Box sx={{ width: '100%', padding: '7px 24px 14px 24px', display: 'flex', justifyContent: 'space-between' }}>
         <Box sx={{ display: 'block' }}>
-          <Typography sx={{ fontSize: '24px', fontWeight: '700', color: '#EF127C', lineHeight: '1' }}>24</Typography>
-          <Typography sx={{ fontSize: '12px', fontWeight: '700' }}>DAY</Typography>
+          <Typography sx={titleStyle}>{timeLeft['days']}</Typography>
+          <Typography sx={subTitleStyle}>DAY</Typography>
         </Box>
         <Box sx={{ display: 'block' }}>
-          <Typography sx={{ fontSize: '24px', fontWeight: '700', color: '#EF127C', lineHeight: '1' }}>:</Typography>
+          <Typography sx={colonStyle}>:</Typography>
         </Box>
         <Box sx={{ display: 'block' }}>
-          <Typography sx={{ fontSize: '24px', fontWeight: '700', color: '#EF127C', lineHeight: '1' }}>13</Typography>
-          <Typography sx={{ fontSize: '12px', fontWeight: '700' }}>HR</Typography>
+          <Typography sx={titleStyle}>{timeLeft['hours']}</Typography>
+          <Typography sx={subTitleStyle}>HR</Typography>
         </Box>
         <Box sx={{ display: 'block' }}>
-          <Typography sx={{ fontSize: '24px', fontWeight: '700', color: '#EF127C', lineHeight: '1' }}>:</Typography>
+          <Typography sx={colonStyle}>:</Typography>
         </Box>
         <Box sx={{ display: 'block' }}>
-          <Typography sx={{ fontSize: '24px', fontWeight: '700', color: '#EF127C', lineHeight: '1' }}>08</Typography>
-          <Typography sx={{ fontSize: '12px', fontWeight: '700' }}>MIN</Typography>
+          <Typography sx={titleStyle}>{timeLeft['minutes']}</Typography>
+          <Typography sx={subTitleStyle}>MIN</Typography>
         </Box>
         <Box sx={{ display: 'block' }}>
-          <Typography sx={{ fontSize: '24px', fontWeight: '700', color: '#EF127C', lineHeight: '1' }}>:</Typography>
+          <Typography sx={colonStyle}>:</Typography>
         </Box>
         <Box sx={{ display: 'block' }}>
-          <Typography sx={{ fontSize: '24px', fontWeight: '700', color: '#EF127C', lineHeight: '1' }}>02</Typography>
-          <Typography sx={{ fontSize: '12px', fontWeight: '700' }}>SEC</Typography>
+          <Typography sx={titleStyle}>{timeLeft['seconds']}</Typography>
+          <Typography sx={subTitleStyle}>SEC</Typography>
         </Box>
       </Box>
     </Box>
