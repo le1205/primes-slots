@@ -19,8 +19,8 @@ const Layout = ({ children }) => {
       }}
     >
       <Navigation />
-      <Box sx={{ flexGrow: 1, position: 'relative', maxHeight: '100vh' }}>
-        <Box sx={{ position: 'absolute', inset: 0 }}>
+      <Box sx={{ flexGrow: 1, position: 'relative', maxHeight: '100vh', width: '100%' }}>
+        <Box sx={{ position: 'absolute', inset: 0, zIndex: -1 }}>
           <img src={Background} alt="" style={{ width: '100%', height: '100vh', objectFit: 'cover' }} />
         </Box>
         {children}

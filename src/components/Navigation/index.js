@@ -35,7 +35,6 @@ const Navigation = props => {
   const container = {
     display: 'flex',
     boxSizing: 'border-box',
-    color: 'white',
     flexDirection: 'column',
     justifyContent: 'space-between',
     paddingTop: '30px',
