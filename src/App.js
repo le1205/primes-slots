@@ -1,13 +1,16 @@
 import './App.css'
-import { createMuiTheme, ThemeProvider } from '@mui/material'
+import { createTheme, ThemeProvider } from '@mui/material'
 
 import { Routes, Route } from 'react-router-dom'
+
+// mui components
+import Box from '@mui/material/Box'
 
 import Home from 'src/pages/Home'
 
 const App = () => {
   const font = 'Inter'
-  const theme = createMuiTheme({
+  const theme = createTheme({
     typography: {
       fontFamily: font,
     },
@@ -15,7 +18,7 @@ const App = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <div className="App">
+      <Box className="App">
         <Routes>
           <Route redirect="/01" path="/" element={<Home />} />
           <Route path="/01" element={<Home />} />
@@ -27,7 +30,7 @@ const App = () => {
           <Route path="/07" element={<Home />} />
           <Route path="/08" element={<Home />} />
         </Routes>
-      </div>
+      </Box>
     </ThemeProvider>
   )
 }
