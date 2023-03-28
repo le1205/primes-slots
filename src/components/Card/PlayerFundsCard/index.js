@@ -18,7 +18,6 @@ const PlayerFundsCard = props => {
         zIndex: 0,
         alignItems: 'center',
         gap: '8px',
-        marginTop: '10px',
         padding: '20px 50px',
         ':before': {
           width: '100%',
@@ -37,7 +36,7 @@ const PlayerFundsCard = props => {
       }}
     >
       <img src={SOLIcon} alt="" />
-      <Typography sx={{ fontSize: '18px', fontWeight: '600' }}>{funds} SOL</Typography>
+      <Typography sx={{ fontSize: '18px', fontWeight: '600' }}>{funds.toLocaleString('en-US')} SOL</Typography>
     </Box>
   )
 }
