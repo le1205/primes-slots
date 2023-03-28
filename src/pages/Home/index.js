@@ -8,6 +8,7 @@ import Typography from '@mui/material/Typography'
 import Layout from 'src/components/Layouts'
 import PlayerFundsCard from 'src/components/Card/PlayerFundsCard'
 import TimeCount from 'src/components/TimeCount'
+import TitleCard from 'src/components/Card/TitleCard'
 
 const Home = () => {
   const [communityFunds, setCommunityFunds] = useState(12786)
@@ -25,8 +26,15 @@ const Home = () => {
           <Typography sx={{ width: '100%', fontSize: '18px', fontWeight: '600', marginBottom: '10px' }}>
             Community Funds
           </Typography>
-          <Box sx={{ width: '233px' }}>
-            <TimeCount funds={communityFunds} />
+          <Box sx={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
+            <Box sx={{ width: '233px' }}>
+              <TimeCount funds={communityFunds} />
+            </Box>
+          </Box>
+          <Box sx={{ width: '100%', display: 'flex', justifyContent: 'center', marginTop: '48px' }}>
+            <Box sx={{ width: '500px' }}>
+              <TitleCard title="Primes Slots" description="Spin and win your prize" />
+            </Box>
           </Box>
         </Box>
       </Box>
